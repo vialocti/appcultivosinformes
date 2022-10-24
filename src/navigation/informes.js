@@ -24,7 +24,10 @@ const InformeNav = () => {
                     
                  })}
                />
-			<stack.Screen name="nuevoInfo" component={NuevoInfoScreen} />
+			<stack.Screen name="nuevoInfo" 
+      options={()=>({title:'Nuevo informe'})}
+      component={NuevoInfoScreen} 
+      />
 
 			<stack.Screen name="detalle" component={DetalleScreen} />
 		</stack.Navigator>

@@ -47,7 +47,10 @@ const NuevoInfoScreen = ({navigation}) => {
 			/>
 
 			<ImageFrame onImage={onHandlerImage}/>
+			{tecnica && cultivo && image &&(
 			<Button title="Guardar Info" onPress={onHandleSubmit} color={colors.primary} />
+			
+			)}
 		</View>
 		</ScrollView>
 	)

@@ -12,8 +12,8 @@ const InformeItem = ({id,tecnica, cultivo, imagen, onSelected}) => {
       
       <Image style={styles.image} source={{uri:imagen}} />
       <View style={styles.info}>
-        <Text style={styles.title}>{tecnica}</Text>
-        <Text style={styles.title}>{cultivo}</Text>
+        <Text style={styles.title}>Tecnica Cultivo: {tecnica}</Text>
+        <Text style={styles.title}>Cultivo: {cultivo}</Text>
       </View>
 
     </TouchableOpacity>
