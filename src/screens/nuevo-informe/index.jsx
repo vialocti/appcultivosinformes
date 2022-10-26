@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { Button, ScrollView, Text, TextInput, View } from 'react-native'
 import { useDispatch} from 'react-redux'
+import { LocationFrame } from '../../components'
 import ImageFrame from '../../components/image-frame'
 import { saveInfo } from '../../store/info.slice'
 import colors from '../../utils/colors'
@@ -14,14 +15,18 @@ const NuevoInfoScreen = ({navigation}) => {
 	const [cultivo, setCultivo] = useState('')
     // eslint-disable-next-line no-unused-vars
     const [image, setImage] = useState(null)
-
+    const [location, setLocation] = useState({})
 	const onHandlerImage = (imageUri) => {
 		setImage(imageUri);
 	  };
 
+	const onHandleLocation = (coordsLocation)=>{
+		setLocation(coordsLocation)
+	}  
+
     const onHandleSubmit =()=>{
-	
-		dispatch(saveInfo(tecnica,cultivo,image))
+	    
+		dispatch(saveInfo(tecnica,cultivo,image,location))
 		// eslint-disable-next-line react/prop-types
 		navigation.goBack()
 	}
@@ -47,6 +52,9 @@ const NuevoInfoScreen = ({navigation}) => {
 			/>
 
 			<ImageFrame onImage={onHandlerImage}/>
+			<LocationFrame onLocation={onHandleLocation} />
+
+			
 			{tecnica && cultivo && image &&(
 			<Button title="Guardar Info" onPress={onHandleSubmit} color={colors.primary} />
 			

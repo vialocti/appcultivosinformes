@@ -1,10 +1,10 @@
 class Informe{
-    constructor(id,fecha , tecnica, cultivo, imagen ){
-        this.id = id.toString();
-        this.fecha = Date().toString()
+    constructor(id,tecnica, cultivo, imagen, location ){
+        this.id=id.toString()
         this.tecnica=tecnica
         this.cultivo=cultivo
         this.imagen=imagen
+        this.location=location
         
 
     }

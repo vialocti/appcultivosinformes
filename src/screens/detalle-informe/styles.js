@@ -28,6 +28,11 @@ export const styles = StyleSheet.create({
 		marginBottom:5,
 		marginLeft:15,
 	},
+	detallel:{
+		fontSize:16,
+		marginBottom:5,
+		marginLeft:70,
+	},
 	boton:{
 		borderWidth:2,
 		borderRadius:5,

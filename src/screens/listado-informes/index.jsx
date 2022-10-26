@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FlatList} from 'react-native'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { InformeItem } from '../../components'
+import { loadInforms } from '../../store/info.slice'
 // import { styles } from './styles'
+
 
 
 
 // eslint-disable-next-line react/prop-types
 const ListadoInfosScreen = ({navigation}) => {
+    const dispatch = useDispatch()
+
+	useEffect(()=>{
+		dispatch(loadInforms())
+	},[dispatch])
 
     const informes = useSelector((state)=>state.info.informes)
     
