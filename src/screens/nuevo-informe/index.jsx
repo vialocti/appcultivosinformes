@@ -15,18 +15,20 @@ const NuevoInfoScreen = ({navigation}) => {
 	const [cultivo, setCultivo] = useState('')
     // eslint-disable-next-line no-unused-vars
     const [image, setImage] = useState(null)
-    const [location, setLocation] = useState({})
+    const [latitud, setLatitud] = useState()
+	const [longitud,setLongitud] = useState('')
 	const onHandlerImage = (imageUri) => {
 		setImage(imageUri);
 	  };
 
 	const onHandleLocation = (coordsLocation)=>{
-		setLocation(coordsLocation)
+		setLatitud(coordsLocation.lat)
+		setLongitud(coordsLocation.lng)
 	}  
 
     const onHandleSubmit =()=>{
 	    
-		dispatch(saveInfo(tecnica,cultivo,image,location))
+		dispatch(saveInfo(tecnica,cultivo,image,latitud,longitud))
 		// eslint-disable-next-line react/prop-types
 		navigation.goBack()
 	}

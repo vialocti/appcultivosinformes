@@ -1,7 +1,7 @@
 import * as SQLite from 'expo-sqlite'
 
 
-const db = SQLite.openDatabase('cultivosControl.db')
+const db = SQLite.openDatabase('cultivosHidroponicos.db')
 
 export const init =()=>{
     
@@ -12,7 +12,8 @@ export const init =()=>{
         db.transaction((tx)=>{
             tx.executeSql(
                  
-                "CREATE TABLE IF NOT EXISTS informes(id INTEGER PRIMARY KEY NOT NULL, tecnica TEXT NOT NULL, cultivo TEXT NOT NULL,imagen TEXT NOT NULL,location TEXT NOT NULL)",
+                "CREATE TABLE IF NOT EXISTS informes(id INTEGER PRIMARY KEY NOT NULL, tecnica TEXT NOT NULL, cultivo TEXT NOT NULL,imagen TEXT NOT NULL,latitud TEXT NOT NULL,longitud TEXT NOT NULL)",
+               
                 [],
                 () => resolve(),
                 (_,err) =>reject(err)
@@ -24,14 +25,14 @@ export const init =()=>{
      }
 
      // insertar informe
-export const insertInforme =(tecnica,cultivo,imagen,location)=>{
+export const insertInforme =(tecnica,cultivo,imagen,latitud,longitud)=>{
 
     const promise= new Promise((resolve, reject) => {
         db.transaction((tx)=>{
 
             tx.executeSql(
-                'INSERT INTO informes (tecnica,cultivo,imagen,location) VALUES(?,?,?,?)',
-                [tecnica,cultivo,imagen,JSON.stringify(location)],
+                'INSERT INTO informes (tecnica,cultivo,imagen,latitud,longitud) VALUES(?,?,?,?,?)',
+                [tecnica,cultivo,imagen,latitud,longitud],
                 (_,result) =>resolve(result),
                 (_,err) => reject(err)
             

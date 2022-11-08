@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{ useEffect }  from 'react'
 import { Alert, Image, Text, TouchableOpacity, View } from 'react-native'
 import { useSelector } from 'react-redux'
 import { styles } from './styles'
@@ -10,7 +10,10 @@ const DetalleScreen = ({route}) => {
 	const informe = useSelector((state) =>
 	  state.info.informes.find((infoItem) => infoItem.id === infoId)
 	);
-
+    
+	useEffect(()=>{
+		console.log(informe)
+	},[])
 	const onHandleSendInfo =()=>{
 		Alert.alert('Infromacion Enviada..')
 	}
@@ -22,9 +25,12 @@ const DetalleScreen = ({route}) => {
 			<Text style={styles.detalle}>Tecnica Cultivo: {informe.tecnica}</Text>
 			<Text style={styles.detalle}>Cultivo: {informe.cultivo}</Text>
 			<Text style={styles.detalle}>Ubicacion</Text>
+			<Text style={styles.detallel}>Latitud:{informe.latitud} </Text>
+			<Text style={styles.detallel}>Longitud:{informe.longitud} </Text>
+			{/** 
 			<Text style={styles.detallel}>Latitud:{JSON.parse(informe.location).lat} </Text>
 			<Text style={styles.detallel}>Longitud:{JSON.parse(informe.location).lng} </Text>
-			
+		*/}
 			<View style={styles.imagenContent}>
 				<Image style={styles.imagen} source={{uri: informe.imagen}} />
 			</View>
