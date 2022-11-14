@@ -5,12 +5,24 @@ import { DetalleScreen, ListadoInfosScreen, NuevoInfoScreen } from '../screens'
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { TouchableOpacity } from 'react-native'
 import colors  from '../utils/colors'
+import { isAndroid } from '../utils/functions';
 
 const stack = createNativeStackNavigator()
 
 const InformeNav = () => {
 	return (
-		<stack.Navigator initialRouteName="listado">
+		<stack.Navigator 
+    initialRouteName="listado"
+    screenOptions={{
+      
+      headerStyle: {
+        backgroundColor: isAndroid ? colors.primary : colors.secondary,
+    },
+    headerTitleStyle: {
+      fontFamily: 'Lato-Bold',
+  },
+    }}
+    >
 			<stack.Screen 
                 name="informes" 
                 component={ListadoInfosScreen}
@@ -24,8 +36,12 @@ const InformeNav = () => {
                     
                  })}
                />
-			<stack.Screen name="nuevoInfo" 
-      options={()=>({title:'Nuevo informe'})}
+			<stack.Screen name="nuevoInfo"
+       
+      options={()=>(
+        {title:'Nuevo informe' }       
+      
+      )}
       component={NuevoInfoScreen} 
       />
 

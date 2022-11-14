@@ -20,6 +20,8 @@ const informeSlice=createSlice({
                 action.payload.tecnica,
                 action.payload.cultivo,
                 action.payload.image,
+                action.payload.solucionPh,
+                action.payload.solucionEc,
                 action.payload.latitud,
                 action.payload.longitud
             )
@@ -41,13 +43,13 @@ const informeSlice=createSlice({
 
 export const {addInfo,setInforms} = informeSlice.actions
 
-export const saveInfo =(tecnica,cultivo ,image, latitud, longitud )=>{
+export const saveInfo =(tecnica,cultivo ,image, solucionPh, solucionEc, latitud, longitud )=>{
     return async (dispatch) =>{
             try {
                 
-                const result = await insertInforme(tecnica,cultivo ,image, latitud,longitud)
+                const result = await insertInforme(tecnica, cultivo, image, solucionPh, solucionEc,latitud,longitud)
                 
-                dispatch(addInfo({id:result.insertId, tecnica, cultivo, image, latitud,longitud}))    
+                dispatch(addInfo({id:result.insertId, tecnica, cultivo, image, solucionPh, solucionEc,latitud,longitud}))    
             } catch (error) {
                 console.log(error)
                 throw error

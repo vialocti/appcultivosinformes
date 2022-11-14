@@ -7,7 +7,7 @@ import authSlice from "./auth.slice";
 export const store = configureStore({
     reducer:{
         info:infoSlice,
-        auth:authSlice,
+        authuser:authSlice,
     },
     middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

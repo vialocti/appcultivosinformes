@@ -1,31 +1,44 @@
 {
-	"expo": {
-		"name": "appcontrolcultivo",
-		"slug": "appcontrolcultivo",
-		"version": "1.0.0",
-		"orientation": "portrait",
-		"icon": "./assets/planta.png",
-		"userInterfaceStyle": "light",
-		"splash": {
-			"image": "./assets/el-planeta-tierra.png",
-			"resizeMode": "contain",
-			"backgroundColor": "#ffffff"
-		},
-		"updates": {
-			"fallbackToCacheTimeout": 0
-		},
-		"assetBundlePatterns": ["**/*"],
-		"ios": {
-			"supportsTablet": true
-		},
-		"android": {
-			"adaptiveIcon": {
-				"foregroundImage": "./assets/adaptive-icon.png",
-				"backgroundColor": "#FFFFFF"
-			}
-		},
-		"web": {
-			"favicon": "./assets/favicon.png"
-		}
-	}
+  "expo": {
+    "name": "appcontrolcultivo",
+    "slug": "appcontrolcultivo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/planta.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/el-planeta-tierra.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.vialbambu.appcontrolcultivo"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+	"build": {
+		"preview": {
+			"android": {
+				"buildType": "apk"}
+		 }},
+    "extra": {
+      "eas": {
+        "projectId": "14d55f52-9dbe-4736-99e2-2590f7c7fa7a"
+      }
+    }
+  }
 }
